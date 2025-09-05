@@ -1,0 +1,22 @@
+<h1>延滞一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>本のタイトル</th>
+      <th>借りた人</th>
+      <th>返却期限</th>
+      <th>延滞日数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @overdue_loans.each do |loan| %>
+      <tr>
+        <td><%= loan.book.title %></td>
+        <td><%= loan.user.name %></td>
+        <td><%= loan.due_at.strftime("%Y-%m-%d") %></td>
+        <td><%= (Date.current - loan.due_at.to_date).to_i %> 日</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

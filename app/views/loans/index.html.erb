@@ -1,0 +1,22 @@
+<h1>貸出一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>本のタイトル</th>
+      <th>借りた人</th>
+      <th>借りた日</th>
+      <th>返却期限</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.book.title %></td>
+        <td><%= loan.user.name %></td>
+        <td><%= loan.borrowed_at.strftime("%Y-%m-%d") %></td>
+        <td><%= loan.due_at.strftime("%Y-%m-%d") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
