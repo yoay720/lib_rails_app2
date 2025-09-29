@@ -1,11 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
+<div id="books">
 <%= render @book %>
 
 
+
 <div>
-  <%= link_to "Edit this book", edit_book_path(@book) %>
-  <%= button_to "Destroy this book", @book, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+  <%= link_to "編集する", edit_book_path(@book), class: "btn-edit" %>
+  <%= button_to "削除する", @book, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn-delete" %>
 </div>
 
 <% if @book.total_copies - @book.borrowed_count > 0 %>
@@ -23,3 +25,4 @@
     <%= submit_tag "この本を返却する", class: "btn btn-warning" %>
   <% end %>
 <% end %>
+</div>

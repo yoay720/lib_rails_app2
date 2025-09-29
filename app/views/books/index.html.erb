@@ -52,7 +52,9 @@
 </div>
 
 <% if current_user && current_user.role == "司書" %>
-  <%= link_to "新規作成", new_book_path %>
-  <%= link_to "貸出一覧", loans_path %>
-  <%= link_to "延滞一覧", overdue_loans_path %>
+<div class="administrator">
+  <%= link_to "新規作成", new_book_path, class: "btn btn-primary" %>
+  <%= link_to "貸出一覧", loans_path, class: "btn btn-primary" %>
+  <%= link_to "延滞一覧", overdue_loans_path, class: "btn btn-primary" %>
+</div>
 <% end %>
